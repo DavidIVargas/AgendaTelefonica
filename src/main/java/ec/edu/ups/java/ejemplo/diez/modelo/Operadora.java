@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package ec.edu.ups.java.ejemplo.diez.modelo;
+import java.util.Objects;
 
 public class Operadora {
     private int codigo;
@@ -31,6 +32,30 @@ public class Operadora {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 97 * hash + Objects.hashCode(this.codigo);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Operadora other = (Operadora) obj;
+        return Objects.equals(this.codigo,other.codigo);
+    }
+    
+    
 
     @Override
     public String toString() {

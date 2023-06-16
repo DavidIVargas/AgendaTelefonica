@@ -63,9 +63,6 @@
           </Border>
         </Property>
       </Properties>
-      <AccessibilityProperties>
-        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="Crear Nueva Operadora"/>
-      </AccessibilityProperties>
 
       <Layout>
         <DimensionLayout dim="0">

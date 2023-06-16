@@ -5,10 +5,7 @@
 package ec.edu.ups.java.ejemplo.diez.vista;
 
 import ec.edu.ups.java.ejemplo.diez.controlador.OperadoraControlador;
-import ec.edu.ups.java.ejemplo.diez.controlador.PersonaControlador;
 import ec.edu.ups.java.ejemplo.diez.modelo.Operadora;
-import ec.edu.ups.java.ejemplo.diez.modelo.Persona;
-import java.text.SimpleDateFormat;
 import javax.swing.JOptionPane;
 
 /**
@@ -17,7 +14,7 @@ import javax.swing.JOptionPane;
  */
 public class VentanaBuscarOperadora extends javax.swing.JInternalFrame {
 
-    private final OperadoraControlador operadoraControlador;
+    private OperadoraControlador operadoraControlador;
 
     /**
      * Creates new form VentanaBuscarPersona
@@ -39,10 +36,8 @@ public class VentanaBuscarOperadora extends javax.swing.JInternalFrame {
         jPanel1 = new javax.swing.JPanel();
         label1 = new java.awt.Label();
         label2 = new java.awt.Label();
-        label3 = new java.awt.Label();
         txtCodigo = new javax.swing.JTextField();
         txtNombre = new javax.swing.JTextField();
-        txtFechaNacimiento = new javax.swing.JTextField();
         btnCancelar = new javax.swing.JButton();
         btnBuscar = new javax.swing.JButton();
 
@@ -77,9 +72,6 @@ public class VentanaBuscarOperadora extends javax.swing.JInternalFrame {
         label2.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         label2.setText("Nombre");
 
-        label3.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
-        label3.setText("Fecha de Nacimiento");
-
         txtCodigo.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
         txtCodigo.setForeground(new java.awt.Color(51, 102, 255));
         txtCodigo.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
@@ -88,14 +80,8 @@ public class VentanaBuscarOperadora extends javax.swing.JInternalFrame {
         txtNombre.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
         txtNombre.setForeground(new java.awt.Color(51, 102, 255));
         txtNombre.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        txtNombre.setToolTipText("Ingrese el nombre de la nueva persona");
+        txtNombre.setToolTipText("Ingrese el nombre de la nueva operadora");
         txtNombre.setEnabled(false);
-
-        txtFechaNacimiento.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
-        txtFechaNacimiento.setForeground(new java.awt.Color(51, 102, 255));
-        txtFechaNacimiento.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        txtFechaNacimiento.setToolTipText("Ingrese la fecha de nacimiento de la nueva persona (01/01/1990)");
-        txtFechaNacimiento.setEnabled(false);
 
         btnCancelar.setText("Cancelar");
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -122,17 +108,14 @@ public class VentanaBuscarOperadora extends javax.swing.JInternalFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(label3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(37, 37, 37)
+                                .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(135, 135, 135)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(btnBuscar))
-                                    .addComponent(txtFechaNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                        .addComponent(btnBuscar))))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(269, 269, 269)
                         .addComponent(btnCancelar)))
@@ -151,16 +134,13 @@ public class VentanaBuscarOperadora extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(label3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtFechaNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(37, 37, 37)
+                .addGap(68, 68, 68)
                 .addComponent(btnCancelar)
                 .addContainerGap(80, Short.MAX_VALUE))
         );
 
-        label1.getAccessibleContext().setAccessibleName("Codigo");
+        txtCodigo.getAccessibleContext().setAccessibleDescription("Ingrese el codigo de la nueva operdora");
+        txtNombre.getAccessibleContext().setAccessibleDescription("Ingrese el nombre de la nueva operadora\n");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -179,21 +159,21 @@ public class VentanaBuscarOperadora extends javax.swing.JInternalFrame {
                 .addContainerGap())
         );
 
-        jPanel1.getAccessibleContext().setAccessibleName("Buscar Operadora");
-
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        String codigoString = txtCodigo.getText();
-        int codigo = Integer.parseInt(codigoString);
-        Operadora operadora = operadoraControlador.buscar(codigo);
-        if (operadora != null) {
-            txtNombre.setText(operadora.getNombre());
-        } else {
-            JOptionPane.showMessageDialog(this, "La operadora con código " + codigo + " no ha sido encontrada!");
+         try {
+            int codigo = Integer.parseInt(txtCodigo.getText());
+            Operadora operadorita = operadoraControlador.buscar(codigo);
+            if (operadorita != null) {
+                txtNombre.setText(operadorita.getNombre());
+            } else {
+                JOptionPane.showMessageDialog(this, "La operadora con código " + codigo + " no ha sido encontrada!");
+            }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "El código ingresado no es válido. Debe ser un número entero.");
         }
-
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
@@ -216,9 +196,7 @@ public class VentanaBuscarOperadora extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel1;
     private java.awt.Label label1;
     private java.awt.Label label2;
-    private java.awt.Label label3;
     private javax.swing.JTextField txtCodigo;
-    private javax.swing.JTextField txtFechaNacimiento;
     private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
 }
